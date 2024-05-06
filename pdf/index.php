@@ -1,11 +1,12 @@
 <?php
+//Pour rediriger lorsqu'un fichier est uploadé!
 function redirect($url) {
     header("Location: $url");
     exit();
 }
 
 if(isset($_FILES['fichier']) && $_FILES['fichier']['error'] === UPLOAD_ERR_OK) {
-    $uploadDir = './'; 
+    $uploadDir = './'; /* Dans la racine *\
     $uploadFile = $uploadDir . basename($_FILES['fichier']['name']);
     $fileType = strtolower(pathinfo($uploadFile, PATHINFO_EXTENSION));
     if($fileType === 'pdf') {
